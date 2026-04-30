@@ -31,13 +31,23 @@ test_cases = [
 
 def evaluate_result(result, expected):
     if expected == "success":
-        return "✅" in result
+        return result["status"] == "success"
+
     elif expected == "error":
-        return "❌" in result
+        return result["status"] == "error"
+
     elif expected == "duplicate":
-        return "⚠️" in result
+        return (
+            result["status"] == "error" and
+            "Duplicate" in result["message"]
+        )
+
     elif expected == "slots_error":
-        return "Not enough time slots" in result
+        return (
+            result["status"] == "error" and
+            "Not enough time slots" in result["message"]
+        )
+
     return False
 
 

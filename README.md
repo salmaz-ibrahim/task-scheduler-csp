@@ -13,6 +13,8 @@ A Python-based task scheduler using Constraint Satisfaction Problem (CSP) princi
 Run:
 
 *python tests.py*
+and
+*python main.py*
 
 ## 🧠 Concepts
 - Constraint Satisfaction Problems (CSP)
