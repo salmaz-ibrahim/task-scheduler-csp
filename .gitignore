@@ -16,5 +16,5 @@ venv/
 .DS_Store
 Thumbs.db
 
-ai_helper.py
-calendar_integration.py
+credentials.json
+token.pkl

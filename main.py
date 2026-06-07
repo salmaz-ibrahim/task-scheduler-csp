@@ -1,15 +1,48 @@
-#Application to find best combination of tasks within time limit
-from scheduler import solve_schedule
-#slots = get_time_slots_from_user()
-#print("Suggested Time Slots:", slots)
+from task import Task
+from timeslot import TimeSlot
+from scheduler import schedule_tasks
+from constraints import no_overlap, fits_duration, prioritize, no_study_at_night
 
-def main():
-    print("Welcome to the Task Scheduler!")
-    user_input = input("Please enter your tasks for the day, separated by commas (e.g., Study, Gym, Cook): ")
+schedule = {}
 
-    result = solve_schedule(user_input)
-    print("\nResult:")
-    print(result)
+used_slots = set()
 
-if __name__ == "__main__":
-    main()
+#example tasks
+tasks = [
+    Task("Study SQL", 2, "high","Study"),
+    Task("Go to the gym", 1, "low","Exercise"),
+    Task("Read a book", 3, "medium","Leisure")
+]
+
+#Example slots
+slots = [
+    TimeSlot(18,20),
+    TimeSlot(20,21), 
+    TimeSlot(21,22)
+]
+
+#Prioritize tasks by priority
+tasks.sort(
+    key=lambda t:
+    t.priority == "high",
+    reverse=True
+)
+
+#Schedule tasks
+schedule = schedule_tasks(
+    tasks,
+    slots)
+
+for task, slot in schedule.items():
+    print(f"{task}: {slot}")
+
+priority_order = {
+    "high": 3,
+    "medium": 2,
+    "low": 1
+}
+
+tasks.sort(
+    key=lambda task: priority_order[task.priority],
+    reverse=True
+)
