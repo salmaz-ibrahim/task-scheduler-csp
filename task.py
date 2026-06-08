@@ -14,3 +14,5 @@ class Task:
         self.duration = duration
         self.priority = priority
         self.category = category
+
+        self.assigned_slot = None
