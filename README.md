@@ -23,24 +23,27 @@ The long-term vision is to evolve this project into an AI-powered personal plann
 * 📅 Automatic Google Calendar event creation
 * 🔐 Secure OAuth2 authentication with Google APIs
 * 🔄 Real-time synchronization between the scheduler and Google Calendar
+- Convert natural language plans into structured tasks using Ollama
+- Prioritize tasks automatically
+- Runs locally using Ollama (no OpenAI API required)
 
 ---
 
 # 🏗️ System Workflow
 
-```text
-Tasks
-   ↓
-Priority Sorting
-   ↓
-Constraint Validation
-   ↓
-Task Scheduling
-   ↓
-Google Calendar API
-   ↓
-Calendar Events
-```
+Brain dump
+↓
+Local Ollama
+↓
+Task extraction
+↓
+JSON validation
+↓
+Priority scheduling
+↓
+Google Calendar events
+↓
+Events appear on your actual phone
 
 ---
 
@@ -110,45 +113,15 @@ After scheduling, tasks are automatically converted into real Google Calendar ev
 
 # 🚀 Example
 
-Input Tasks:
+Input:
+"I need to cook, study machine learning for 2 hours, and go to the gym."
 
-```text
-Study SQL
-Duration: 2 hours
-Priority: High
+Output:
+09:00–11:00 Study machine learning
+11:00–12:00 Cook
+12:00–13:00 Go to the gym
 
-Read a Book
-Duration: 1 hour
-Priority: Medium
-
-Go to the Gym
-Duration: 1 hour
-Priority: Low
-```
-
-Available Time Slots:
-
-```text
-18:00 - 20:00
-20:00 - 21:00
-21:00 - 22:00
-```
-
-Generated Schedule:
-
-```text
-Study SQL
-6:00 PM - 8:00 PM
-
-Read a Book
-8:00 PM - 9:00 PM
-
-Go to the Gym
-9:00 PM - 10:00 PM
-```
-
-The schedule is then automatically synchronized with Google Calendar.
-
+→ Events are added directly to Google Calendar.
 ---
 
 # 🔮 Future Roadmap

@@ -1,9 +1,0 @@
-User input tasks
-        ↓
-Gemini asks for time slots
-        ↓
-CSP assigns tasks → slots
-        ↓
-Convert to real timestamps
-        ↓
-Push to Google Calendar

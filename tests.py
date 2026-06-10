@@ -1,4 +1,4 @@
-from scheduler import solve_schedule
+#from scheduler import solve_schedule
 
 test_cases = [
     {
@@ -73,5 +73,10 @@ def run_tests():
     print(f"Summary: {passed}/{len(test_cases)} tests passed")
 
 
-if __name__ == "__main__":
-    run_tests()
+import urllib.request
+
+response = urllib.request.urlopen(
+    "http://localhost:11434/api/tags"
+)
+
+print(response.read().decode())

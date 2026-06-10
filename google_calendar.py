@@ -79,3 +79,14 @@ def create_event(
         calendarId="primary",
         body=event
     ).execute()
+
+
+def create_event_from_body(
+    service,
+    event
+):
+
+    service.events().insert(
+        calendarId="primary",
+        body=event
+    ).execute()
